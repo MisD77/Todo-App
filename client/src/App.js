@@ -17,9 +17,19 @@ useEffect(() => {
         <p>
           {!data ? "Loading.." : data}
         </p>
+        <p>
+          {callDB()}
+        </p>
       </header>
     </div>
   );
 }
+
+const callDB = ( () => {
+  fetch("http://localhost:9000/testDB")
+  .then(res => res.text())
+  .then(res => this.setState({ dbResponse: res }))
+  .catch(err => err);
+})
 
 export default App;

@@ -44,3 +44,15 @@ app.listen(PORT, () => {
 # open a terminal and use create-react-app to create a new React project with the name client as
 
 ` npx create-react-app client`
+
+# Docker-compose instructions
+
+run `docker-compose build` on your app's main directory
+
+# To spin up the container
+
+run `docker-compose up`
+
+# Connect api to your Database
+
+install mongoose `npm install mongoose`
