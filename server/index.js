@@ -3,7 +3,7 @@ import { Mongoose } from "mongoose";
 
 const PORT = process.env.PORT || 3001;
 
-//var testDBRouter = require("./server/testDB");
+var testDBRouter = require("./server/testDB");
 
 const app = express();
 
