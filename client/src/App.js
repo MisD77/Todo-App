@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
-const [data, setData] = useState(null);
-useEffect(() => {
-  fetch("/api")
-  .then ((res) => res.json())
-  .then ((data) => setData(data.message));
-}, []);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? "Loading.." : data}
-        </p>
-      </header>
+    <div className="todo-app">
+      <h2> MY TODO APP</h2>
+      <div className="select-task">
+        <button className="btn new-task"> New Task</button>
+        <button className="btn completed-task">Completed Task</button>
+        <button className="btn active-task">Active Task</button>
+      </div>
+      <div>
+        <ul className="my-tasks">
+          <li>exercise</li>
+          <li>pick up lunch</li>
+          <li>self learning</li>
+          <li>evening stroll</li>
+          <li>check email</li>
+        </ul>
+      </div>
     </div>
   );
 }
