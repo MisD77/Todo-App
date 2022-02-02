@@ -12,9 +12,7 @@ function App() {
       <Header />
       <AddToList />
       <VarietyTask />
-      <div className="container">
-        <TodoItem/>
-      </div>
+      <TodoItem/>
     </>
   );
 }

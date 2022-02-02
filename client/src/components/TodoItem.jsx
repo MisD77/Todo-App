@@ -1,15 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 
 function TodoItem() {
+
+  const[text, setText] = useState('Exercise');
+
   return (
-    <ul className="my-tasks">
-        <li> 
-            <div className="each-task">
-                <input id="todo-0" type="checkbox" />
-                <label className= "todo-label" htmlFor="todo-0">Exercise</label>
-            </div>
-        </li>
-    </ul>
+    <div className="to-do-card">
+        <input type="checkbox" id="to-do-item" name="to-do-item"/>
+        <label htmlFor="to-do-item">{text}</label>
+        <button> Delete </button>
+    </div>
   )}
 
 export default TodoItem;
