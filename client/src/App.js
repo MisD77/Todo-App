@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import AddToList from "./components/AddToList";
 import "./index.css";
 
 
@@ -6,10 +7,11 @@ function App() {
   return (
     <>
       <Header />
+      <AddToList />
       <div className="container">
-        <button className="btn new-task"> New Task</button>
-        <button className="btn completed-task">Completed Task</button>
+        <button className="btn all-task"> All Tasks</button>
         <button className="btn active-task">Active Task</button>
+        <button className="btn completed-task">Completed Task</button>
       </div>
       <div>
         <ul className="my-tasks">
