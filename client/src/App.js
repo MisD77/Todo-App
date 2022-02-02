@@ -1,8 +1,12 @@
+import Header from "./components/Header";
+import "./index.css";
+
+
 function App() {
   return (
-    <div className="todo-app">
-      <h2> MY TODO APP</h2>
-      <div className="select-task">
+    <>
+      <Header />
+      <div className="container">
         <button className="btn new-task"> New Task</button>
         <button className="btn completed-task">Completed Task</button>
         <button className="btn active-task">Active Task</button>
@@ -16,7 +20,7 @@ function App() {
           <li>check email</li>
         </ul>
       </div>
-    </div>
+    </>
   );
 }
 export default App;
