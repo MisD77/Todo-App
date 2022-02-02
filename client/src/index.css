@@ -32,13 +32,13 @@ header {
   margin-bottom: 30px;
 }
 
-form {
-  margin-bottom: 30px;
+.add-to-list,
+.show-tasks {
+  text-align: center;
 }
 
 input {
   height: 40px;
-  float: right;
 }
 
 input[type="text"] {
@@ -67,18 +67,14 @@ input[type="button"] {
 }
 
 .btn {
-  align: center;
-  border: 0;
+  text-align: center;
+  background: #fff;
   border-radius: 8px;
   color: #9d2727;
   width: 100px;
-  height: 40px;
+  height: 35px;
   cursor: pointer;
-  margin: 10px;
-}
-
-.btn-primary {
-  background-color: #202142;
+  margin: 14px;
 }
 
 .btn-secondary {
@@ -88,17 +84,6 @@ input[type="button"] {
 .btn:hover {
   transform: scale(0.98);
   opacity: 0.9;
-}
-
-.btn:disabled {
-  background-color: #cccccc;
-  color: #333;
-  cursor: auto;
-}
-
-.btn:disabled:hover {
-  transform: scale(1);
-  opacity: 1;
 }
 
 @media (max-width: 600px) {
