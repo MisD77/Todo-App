@@ -1,13 +1,11 @@
 import express from "express";
-import { Mongoose } from "mongoose";
+import Mongoose from "mongoose";
 
 const PORT = process.env.PORT || 3001;
-
-var testDBRouter = require("./server/testDB");
-
 const app = express();
 
-const connection = Mongoose.connection;
+const connection = Mongoose.connect("mongodb://localhost/testdb");
+var db = Mongoose.connection
 
 connection.once("open", function(){
 console.log("connection with MongoDB was successful");
