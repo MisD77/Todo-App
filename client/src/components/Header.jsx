@@ -16,7 +16,7 @@ function Header({text, bgColor, textColor}) {
   }
 
   Header.defaultProps = {
-      text: 'MY TO-DO ',
+      text: 'MY TODO APP',
       bgColor: 'rgba(0,0,0,0.4)',
       textColor: '#9d2727',
   }
