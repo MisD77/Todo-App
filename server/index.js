@@ -1,14 +1,14 @@
 const express= require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const app = express();
 
+require('dotenv').config();
+
+const app = express();
 var corsOptions = {origin: 'https://localhost:8081'};
 app.use(cors(corsOptions));
+app.use(express.json());
 
-//parse requests of content-type - application/json
-app.use(bodyParser.json());
 
 //endpoints to interact with our react app
 app.get("/api", (req, res) => {
