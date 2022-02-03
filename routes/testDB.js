@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
@@ -9,9 +9,11 @@ router.get("/", function(req, res, next) {
 });
 
 // Connecting to MongoDB
-mongoose.connect("mongodb://mongodb:27017/test");
+const dbURI = "mongodb://localhost:27017/todo";
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
+.then((result) => console.log("connected to db"))
+.catch((err) => console.log(err));// If there is a connection error send an error message
 
-// If there is a connection error send an error message
 mongoose.connection.on("error", error => {
     console.log("Database connection error:", error);
     databaseConnection = "Error connecting to Database";
@@ -22,4 +24,5 @@ mongoose.connection.once("open", () => {
     console.log("Connected to Database!");
     databaseConnection = "Connected to Database";
 });
+
 module.exports = router;

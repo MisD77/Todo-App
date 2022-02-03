@@ -1,19 +1,43 @@
 const express= require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const app = express();
-
 var corsOptions = {origin: 'https://localhost:8081'};
+
+
+require('dotenv').config();
+app.use(express.json());
 app.use(cors(corsOptions));
 
-//parse requests of content-type - application/json
-app.use(bodyParser.json());
+//getting model 
+const Task = require('../models/task.model');
 
-//endpoints to interact with our react app
+//Connecting to MongoDB
+var testDBRouter = require("../routes/testDB");
+app.use("/testDB", testDBRouter);
+
+
+//endpoints
+
+
+//endpoints 
 app.get("/api", (req, res) => {
     res.json({message: "Welcome to the to-do app!"});
 });
+
+app.get('/api/add-task', (req,res) => {
+    const task = new Task ({
+        name: 'Post package to will',
+        category: 'Finance',
+        date: Date()
+    });
+    task.save()
+    .then ((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
@@ -22,6 +46,23 @@ app.listen(PORT, () => {
 
 
 
-
-
+/*
+db.tasks.insertMany([ 
+    {
+        name: 'Exercie',
+        category: 'Lifestyle',
+        date: Date()
+    }, 
+    {
+        name: 'Grocery', 
+        category: 'Food',
+        date: Date()
+    }, 
+    {
+        name: 'Study',
+        category: 'Education', 
+        date: Date()
+    }
+])
+*/
 
