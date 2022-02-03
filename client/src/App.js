@@ -1,24 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Header from "./components/Header";
+import AddToList from "./components/AddToList";
+import VarietyTask from "./components/VarietyTask";
+import TodoList from "./components/TodoList";
+import "./index.css";
 
 function App() {
-const [data, setData] = useState(null);
-useEffect(() => {
-  fetch("/api")
-  .then ((res) => res.json())
-  .then ((data) => setData(data.message));
-}, []);
+
+  const[todo, setTodo] = useState([
+    {
+      id: 1,
+      text: "Grocery",
+    },
+    {
+      id: 2,
+      text: "Exercise",
+    },
+    {
+      id: 3,
+      text: "Study",
+    },
+  ])
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? "Loading.." : data}
-        </p>
-      </header>
-    </div>
+    <>
+      <Header />
+      <AddToList />
+      <VarietyTask />
+      <TodoList todo={todo} />
+    </>
   );
 }
 export default App;
