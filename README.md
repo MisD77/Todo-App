@@ -51,7 +51,19 @@ run `docker-compose build` on your app's main directory
 
 # To spin up the container
 
-run `docker-compose up`
+run `docker compose up -d`
+
+# remove everything from connection
+
+run `docker compose down`
+
+# stop the connection
+
+run `docker compose stop`
+
+# see list of docker containers
+
+run `docker ps`
 
 # Connect api to your Database
 
