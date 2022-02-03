@@ -1,14 +1,18 @@
 const express= require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
 require('dotenv').config();
-
 const app = express();
+app.use(express.json());
 var corsOptions = {origin: 'https://localhost:8081'};
 app.use(cors(corsOptions));
-app.use(express.json());
 
+const mongoose = require('mongoose');
+//dixyaAchh, Dimbus.77
+
+const dbURI = "mongodb+srv://dixyaAchh:Dimbus.77@mycluster.eep8c.mongodb.net/todoDb?retryWrites=true&w=majority"
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
+.then((result) => console.log("connected to db"))
+.catch((err) => console.log(err));
 
 //endpoints to interact with our react app
 app.get("/api", (req, res) => {
