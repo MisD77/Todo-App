@@ -1,26 +1,43 @@
 const express= require('express');
 const cors = require('cors');
-require('dotenv').config();
 const app = express();
-app.use(express.json());
 var corsOptions = {origin: 'https://localhost:8081'};
+
+
+require('dotenv').config();
+app.use(express.json());
 app.use(cors(corsOptions));
 
-const mongoose = require('mongoose');
+//getting model 
+const Task = require('../models/task.model');
 
-//const dbURI = "mongodb+srv://dixyaAchh:Dimbus.77@mycluster.eep8c.mongodb.net/todoDb?retryWrites=true&w=majority"
-//mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true })
-//.then((result) => console.log("connected to db"))
-//.catch((err) => console.log(err));
-
-// Connecting to MongoDB
+//Connecting to MongoDB
 var testDBRouter = require("../routes/testDB");
 app.use("/testDB", testDBRouter);
 
-//endpoints to interact with our react app
+
+//endpoints
+
+
+//endpoints 
 app.get("/api", (req, res) => {
     res.json({message: "Welcome to the to-do app!"});
 });
+
+app.get('/api/add-task', (req,res) => {
+    const task = new Task ({
+        name: 'Post package to will',
+        category: 'Finance',
+        date: Date()
+    });
+    task.save()
+    .then ((result) => {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+})
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

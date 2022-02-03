@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Schemma = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
     name: {
@@ -13,7 +13,7 @@ const taskSchema = new Schema({
     },
     date: {
         type: 'Date',
-        required: true,
+        required: false,
     }
 });
 
