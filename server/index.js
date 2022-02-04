@@ -16,9 +16,6 @@ var testDBRouter = require("../routes/testDB");
 app.use("/testDB", testDBRouter);
 
 
-//endpoints
-
-
 //endpoints 
 app.get("/api", (req, res) => {
     res.json({message: "Welcome to the to-do app!"});
@@ -26,9 +23,9 @@ app.get("/api", (req, res) => {
 
 app.get('/api/add-task', (req,res) => {
     const task = new Task ({
-        name: 'Post package to will',
-        category: 'Finance',
-        date: Date()
+        name: 'Renew License',
+        category: 'Misc',
+        date: Date.now()
     });
     task.save()
     .then ((result) => {
