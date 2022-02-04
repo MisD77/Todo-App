@@ -25,7 +25,6 @@ mongoose.connection.once("open", () => {
     databaseConnection = "Connected to Database";
 });
 
-
 //use this with docker container
 //const dbURI = "mongodb://localhost:27017/todo";
 
