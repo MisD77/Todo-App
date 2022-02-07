@@ -1,13 +1,29 @@
-import React from 'react';
-
+import { useState } from 'react';
 function AddTaskForm() {
-  return (
 
+  const [text, setText] = useState('');
+  const [btnDisabled, setBtnDisabled] = useState(true);
+
+  const handleTextChange = (e) => {
+    if (text === '' && text.trim().length <= 1){
+      setBtnDisabled(true);
+    }
+    setBtnDisabled(false);
+    setText(e.target.value);
+  }
+
+  return (
     <div className="add-to-list">
         <form action="#">
-        <input type="text" name="new-todo-add"/>
-        <input type="button" value="Add New Task"/>
-    </form>
+          <div className="input-group">
+            <input onChange={handleTextChange} 
+            type="text" 
+            placeholder=' New task' 
+            value={text}
+            />
+            <button className = "btn" type="submit" disabled={ btnDisabled }>Add </button>
+          </div>
+        </form>
     </div>
   );
 }
