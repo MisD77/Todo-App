@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AddToList() {
+function AddTaskForm() {
   return (
 
     <div className="add-to-list">
@@ -12,4 +12,4 @@ function AddToList() {
   );
 }
 
-export default AddToList;
+export default AddTaskForm;

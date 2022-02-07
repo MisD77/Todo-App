@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from "./components/Header";
-import AddToList from "./components/AddToList";
+import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
 import TodoList from "./components/TodoList";
 import "./index.css";
@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Header />
-      <AddToList />
+      <AddTaskForm />
       <VarietyTask />
       <TodoList todo={todo} />
     </>
