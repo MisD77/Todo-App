@@ -2,7 +2,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import Card from './shared/Card';
 
-function TodoItem({ item }) {
+function TodoItem({ item, handleDelete }) {
 
   return (
     <Card>
@@ -10,7 +10,7 @@ function TodoItem({ item }) {
         <input type="checkbox" id="to-do-item" name="to-do-item"/>
         <label htmlFor="to-do-item">{item.text}</label>
       </div>
-      <button className="delete"> 
+      <button onClick={() => handleDelete(item.id)} className="delete"> 
        <FaTrashAlt color="#9d2727" />
       </button>
     </Card>

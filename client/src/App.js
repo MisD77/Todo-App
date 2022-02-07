@@ -25,12 +25,20 @@ function App() {
     },
   ]);
 
+  const deleteTodo = (id) => {
+    if (window.confirm("Are you sure you want to delete")) {
+      console.log("App", id);
+    }
+    //delete the todo item by id
+    //update the db by id
+  };
+
   return (
     <>
       <Header />
       <AddTaskForm />
       <VarietyTask />
-      <TodoList todo={todo} />
+      <TodoList todo={todo} handleDelete={deleteTodo} />
     </>
   );
 }
