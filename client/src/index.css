@@ -38,22 +38,23 @@ header {
   background-color: #fff;
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 30px;
   width: 50%;
+  border-radius: 4px;
   justify-content: space-between;
   color: #333;
   padding: 40px 50px;
   margin: auto;
+  margin-bottom: 20px;
   position: relative;
+}
+
+.delete {
+  border: none;
 }
 
 .todo-checkbox-text {
   margin: -10px;
-}
-
-.del-button {
-  margin: -10px;
-  height: 20px;
 }
 
 .add-to-list,

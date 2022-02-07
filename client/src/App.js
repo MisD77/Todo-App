@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import Header from "./components/Header";
 import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
@@ -7,21 +7,23 @@ import Card from "./components/shared/Card";
 import "./index.css";
 
 function App() {
-
-  const[todo, setTodo] = useState([
+  const [todo, setTodo] = useState([
     {
       id: 1,
-      text: "Grocery",
+      text: "Grocery ",
+      complete: "Completed",
     },
     {
       id: 2,
-      text: "Exercise",
+      text: "Exercise ",
+      complete: "Not Completed",
     },
     {
       id: 3,
-      text: "Study",
+      text: "Study ",
+      complete: "Completed",
     },
-  ])
+  ]);
 
   return (
     <>
