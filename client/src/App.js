@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
 import TodoList from "./components/TodoList";
+import Card from "./components/shared/Card";
 import "./index.css";
 
 function App() {

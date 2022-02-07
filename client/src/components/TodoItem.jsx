@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import Card from './shared/Card';
 
-function TodoItem() {
-
-  const[text, setText] = useState('Exercise');
+function TodoItem({ item }) {
 
   return (
-    <div className="to-do-card">
+    <Card>
+      <div className="todo-check">
         <input type="checkbox" id="to-do-item" name="to-do-item"/>
-        <label htmlFor="to-do-item">{text}</label>
+        <label htmlFor="to-do-item">{item.text}</label>
+      </div>
+      
+      <div className="delButton">
         <button> Delete </button>
-    </div>
+      </div>
+    </Card>
   )}
 
 export default TodoItem;
