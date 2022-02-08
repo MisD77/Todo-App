@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
+import PropTypes from 'prop-types';
+import Card from './shared/Card';
 
-function TodoItem() {
-
-  const[text, setText] = useState('Exercise');
+function TodoItem({ item, handleDelete }) {
 
   return (
-    <div className="to-do-card">
+    <Card>
+      <div className="todo-check">
         <input type="checkbox" id="to-do-item" name="to-do-item"/>
-        <label htmlFor="to-do-item">{text}</label>
-        <button> Delete </button>
-    </div>
+        <label htmlFor="to-do-item">{item.text}</label>
+      </div>
+      <button onClick={() => handleDelete(item.id)} className="delete"> 
+       <FaTrashAlt color="#9d2727" />
+      </button>
+    </Card>
   )}
+
+  TodoItem.propTypes = {
+    item: PropTypes.object.isRequired,
+  }
+
+
 
 export default TodoItem;
