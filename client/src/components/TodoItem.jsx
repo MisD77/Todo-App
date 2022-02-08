@@ -8,16 +8,16 @@ function TodoItem({ item, handleDelete }) {
     <Card>
       <div className="todo-check">
         <input type="checkbox" id="to-do-item" name="to-do-item"/>
-        <label htmlFor="to-do-item">{item.text}</label>
+        <label htmlFor="to-do-item">{item.name}</label>
       </div>
-      <button onClick={() => handleDelete(item.id)} className="delete"> 
+      <button onClick={() => handleDelete(item._id)} className="delete"> 
        <FaTrashAlt color="#9d2727" />
       </button>
     </Card>
   )}
 
   TodoItem.propTypes = {
-    item: PropTypes.object.isRequired,
+    item: PropTypes.isRequired,
   }
 
 
