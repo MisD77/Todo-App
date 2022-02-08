@@ -13,13 +13,16 @@ function AddTaskForm({ handleAdd }) {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (text !== '' && text.trim().length >= 1){
       const newTask = {
         text,
       }
       handleAdd(newTask);
     }
+    setBtnDisabled(true);
+    setText("");
+
   }
 
   return (

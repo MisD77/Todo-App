@@ -26,8 +26,8 @@ function App() {
   ]);
 
   const addTodo = (newTodo) => {
-    console.log(newTodo);
-  }
+    setTodo([newTodo, ...todo]);
+  };
 
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <Header />
-      <AddTaskForm handleAdd={addTodo}/>
+      <AddTaskForm handleAdd={addTodo} />
       <VarietyTask />
       <TodoList todo={todo} handleDelete={deleteTodo} />
     </>
