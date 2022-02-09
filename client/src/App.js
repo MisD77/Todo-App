@@ -8,6 +8,7 @@ import Card from "./components/shared/Card";
 import "./index.css";
 
 function App() {
+  const apiUrl = "http://localhost:8080/api/tasks";
   const [todo, setTodo] = useState([]);
   useEffect(() => {
     getAllTasks();
@@ -15,7 +16,7 @@ function App() {
 
   const getAllTasks = () => {
     axios
-      .get("http://localhost:8080/api/tasks")
+      .get(apiUrl)
       .then((response) => {
         const allTasks = response.data;
         setTodo(allTasks);
@@ -24,16 +25,18 @@ function App() {
   };
 
   const addTodo = async (newTodo) => {
-    axios.post("http://localhost:8080/api/tasks", newTodo).then((res) => {
-      console.log(res);
-      console.log(res.data);
+    axios.post(apiUrl, newTodo).then((res) => {
+      setTodo([newTodo, ...todo]);
     });
-    setTodo([newTodo, ...todo]);
   };
 
   const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
-      console.log("App", id);
+      setTodo(todo.filter((item) => item._id !== id));
+      axios.delete(apiUrl + "/" + id).then((res) => {
+        const allTasks = res.data;
+        setTodo(allTasks);
+      });
     }
   };
 

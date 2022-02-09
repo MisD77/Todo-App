@@ -11,7 +11,6 @@ if (!todo || todo.length === 0)
   return (
   <div className="todo-list">
     {todo.map((item) => (
-      console.log(todo),
       <TodoItem key={item._id} item={item} 
       handleDelete={handleDelete} />
     )

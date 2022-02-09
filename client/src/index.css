@@ -83,6 +83,7 @@ input {
   font-size: 16px;
   background: none;
   color: white;
+  margin-right: 10px;
 }
 
 input:focus {

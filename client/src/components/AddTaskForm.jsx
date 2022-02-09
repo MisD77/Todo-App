@@ -15,7 +15,7 @@ function AddTaskForm({ handleAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const task = {name: text, completed: false, date: Date()}
+    const task = {name: text}
     handleAdd(task);
     setBtnDisabled(true);
     setText("");
