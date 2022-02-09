@@ -9,22 +9,25 @@ import "./index.css";
 
 function App() {
   const [todo, setTodo] = useState([]);
-
-  const url = "http://localhost:8080/api/tasks";
   useEffect(() => {
     getAllTasks();
   }, []);
 
   const getAllTasks = () => {
-    axios.get(url)
-    .then((response) => {
-      const allTasks = response.data
-      setTodo(allTasks)
-    })
-    .catch((err) => console.error('Error:{error}'))
+    axios
+      .get("http://localhost:8080/api/tasks")
+      .then((response) => {
+        const allTasks = response.data;
+        setTodo(allTasks);
+      })
+      .catch((err) => console.error("Error:{error}"));
   };
 
-  const addTodo = (newTodo) => {
+  const addTodo = async (newTodo) => {
+    axios.post("http://localhost:8080/api/tasks", newTodo).then((res) => {
+      console.log(res);
+      console.log(res.data);
+    });
     setTodo([newTodo, ...todo]);
   };
 

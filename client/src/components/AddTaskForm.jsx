@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios'
 function AddTaskForm({ handleAdd }) {
 
   const [text, setText] = useState('');
@@ -14,15 +15,10 @@ function AddTaskForm({ handleAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (text !== '' && text.trim().length >= 1){
-      const newTask = {
-        text,
-      }
-      handleAdd(newTask);
-    }
+    const task = {name: text, completed: false, date: Date()}
+    handleAdd(task);
     setBtnDisabled(true);
     setText("");
-
   }
 
   return (
