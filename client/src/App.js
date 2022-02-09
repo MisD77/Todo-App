@@ -30,18 +30,19 @@ function App() {
     });
   };
 
-  const updateTodo = async (newTodo) => {
-    const complete = !newTodo.completed;
-    newTodo.completed = complete;
-    axios.put(apiUrl + "/" + newTodo._id).then((res) => {
-      setTodo([newTodo, ...todo]);
-    });
+  const updateTodo = (newTodo) => {
+    axios
+      .put(apiUrl + "/" + newTodo._id, { completed: !newTodo.completed })
+      .then((res) => {
+        const allTasks = res.data;
+        setTodo(allTasks);
+      });
   };
 
-  const deleteTodo = (id) => {
+  const deleteTodo = async (id) => {
     if (window.confirm("Are you sure you want to delete")) {
+       await axios.delete(apiUrl + "/" + id);
       setTodo(todo.filter((item) => item._id !== id));
-      axios.delete(apiUrl + "/" + id);
     }
   };
 
@@ -50,11 +51,7 @@ function App() {
       <Header />
       <AddTaskForm handleAdd={addTodo} />
       <VarietyTask />
-      <TodoList
-        todo={todo}
-        handleDelete={deleteTodo}
-        handleCheck={updateTodo}
-      />
+      <TodoList todo={todo} handleDelete={deleteTodo} />
     </>
   );
 }
