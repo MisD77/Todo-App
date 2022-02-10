@@ -2,7 +2,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { useState } from 'react';
 import Card from './shared/Card';
 
-function TodoItem({ item, handleDelete, labelOn, labelOff }) {
+function TodoItem({ item, handleDelete }) {
   const [isChecked, setIsChecked] = useState(item.completed);
   const onChange = () => {
     setIsChecked(!isChecked);
@@ -12,7 +12,6 @@ function TodoItem({ item, handleDelete, labelOn, labelOff }) {
     <Card>
         <label htmlFor="to-do-item">
           <input type="checkbox" checked={isChecked} onChange={onChange} />
-          {isChecked ? labelOn : labelOff}
           {item.name}
       </label>
       <button onClick={() => handleDelete(item._id)} className="delete"> 
