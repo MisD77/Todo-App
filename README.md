@@ -68,3 +68,11 @@ run `docker ps`
 # Connect api to your Database
 
 install mongoose `npm install mongoose`
+
+# Testing examples
+
+create -react-app ships with jest. only need to add react-test-renderer for rendering snapshots
+
+run ` npm install --dev react-test-renderer '
+
+
