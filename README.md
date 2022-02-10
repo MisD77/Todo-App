@@ -75,4 +75,6 @@ create -react-app ships with jest. only need to add react-test-renderer for rend
 
 run ` npm install --dev react-test-renderer '
 
+# add testing library/dom for testing
 
+run `npm install --save-dev @testing-library/dom`

@@ -14,6 +14,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-scripts": "5.0.0",
+    "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -26,6 +27,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "tsconfig.json": {
+    "types": [
+      "jest",
+      "node"
     ]
   },
   "browserslist": {
@@ -41,6 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^8.11.3",
+    "@types/jest": "^27.4.0",
+    "jest": "^27.5.1",
     "jest-watch-typeahead": "^0.6.5",
     "react-test-renderer": "^17.0.2"
   }
