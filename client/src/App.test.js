@@ -4,7 +4,7 @@ import axios from "axios";
 jest.mock("axios");
 import { getAllTasks } from "./App";
 
-describe("When api all pass", () => {
+describe("When getall task api call is passed", () => {
   test("should return all the todo list on success", async () => {
     //given
     const tasks = [
