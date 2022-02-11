@@ -14,7 +14,7 @@ function TodoItem({ item, handleDelete }) {
           <input data-testid="todo-checkbox" type="checkbox" checked={isChecked} onChange={onChange} />
           {item.name}
       </label>
-      <button data-testid="todo-button" onClick={() => handleDelete(item._id)} className="delete"> 
+      <button data-testid="" onClick={() => handleDelete(item._id)} className="delete"> 
        <FaTrashAlt color="#9d2727" />
       </button>
     </Card>
