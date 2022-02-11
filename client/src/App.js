@@ -12,7 +12,7 @@ export const getAllTasks = async () => {
   try {
     return await axios.get(apiUrl);
   } catch (e) {
-    return[];
+    return [];
   }
 };
 
