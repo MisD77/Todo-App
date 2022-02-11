@@ -2,24 +2,38 @@ import React from "react";
 import { render, cleanup, waitforElement } from "@testing-library/react";
 import axios from "axios";
 jest.mock("axios");
-import { getAllTasks } from "./App";
+import { apiUrl, getAllTasks } from "./App";
 
-describe("When getall task api call is passed", () => {
-  test("should return all the todo list on success", async () => {
+describe("When getAllTasks api call is passed", () => {
+  test("should return all todo list on success", async () => {
     //given
-    const tasks = [
+    const todos = [
       { id: 1, name: "Buy eggs", date: "2020-02-09" },
       { id: 2, name: "Finish a book", date: "2021-02-10" },
     ];
 
-    axios.get.mockResolvedValueOnce(tasks);
+    axios.get.mockResolvedValueOnce(todos);
 
     //when
     const results = await getAllTasks();
-    console.log(results);
 
     //then
-    expect(axios.get).toHaveBeenCalledWith("http://localhost:8080/api/tasks");
-    expect(results).toEqual(tasks);
+    expect(axios.get).toHaveBeenCalledWith(apiUrl);
+    expect(results).toEqual(todos);
+  });
+});
+
+describe("When getAllTask api call fails", () => {
+  test("should return empty list ", async () => {
+    //given
+    const message = "Network Error";
+    axios.get.mockRejectedValue(new Error(message));
+
+    //when
+    const result = await getAllTasks();
+
+    //then
+    expect(axios.get).toHaveBeenCalledWith(apiUrl);
+    expect(result).toEqual([]);
   });
 });
