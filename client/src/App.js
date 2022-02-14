@@ -6,18 +6,11 @@ import VarietyTask from "./components/VarietyTask";
 import TodoList from "./components/TodoList";
 import Card from "./components/shared/Card";
 import "./index.css";
-export const apiUrl = "http://localhost:8080/api/tasks";
-
-export const getAllTasks = async () => {
-  try {
-    return await axios.get(apiUrl);
-  } catch (e) {
-    return [];
-  }
-};
+import { apiUrl, getAllTasks, addTask } from "./apiServices";
 
 function App() {
   const [todo, setTodo] = useState([]);
+
   useEffect(() => {
     getAllTasks().then((response) => {
       const allTasks = response.data;
@@ -26,7 +19,7 @@ function App() {
   }, []);
 
   const addTodo = async (newTodo) => {
-    axios.post(apiUrl, newTodo).then((res) => {
+    addTask.then((res) => {
       setTodo([newTodo, ...todo]);
     });
   };
