@@ -13,18 +13,14 @@ export function addTask(task) {
   return axios.post(apiUrl, task);
 }
 
-export function updateTask(id, task) {
-  return axios.put(apiUrl + "/" + id, task);
-}
+// export function deleteTask(id) {
+//   return axios.delete(apiUrl + "/" + id);
+// }
 
-export function deleteTask(id) {
-  return axios.delete(apiUrl + "/" + id);
-}
-
-export function completedDone(task, id) {
+export function updateTask(task, id) {
   const filterTask = task.map((item) => {
     if (item._id === id) {
-      item.completed = !item.completed;
+        item.completed = !item.completed;
     }
     axios.put(apiUrl + "/" + id, item);
     return item;
@@ -32,8 +28,10 @@ export function completedDone(task, id) {
   return filterTask;
 }
 
-export function deleteTodo(task, id) {
+
+export function deleleteTask(task, id) {
   if (window.confirm("Are you sure you want to delete")) {
     return task.filter((task) => task._id !== id);
   }
 }
+

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
-import TodoList from "./components/TodoList";
+import TodoItem from "./components/TodoItem";
 import "./index.css";
-import { getAllTasks, addTask, completedDone, deleteTodo } from "./apiServices";
+import { getAllTasks, addTask, updateTask, deleleteTask } from "./apiServices";
 
 function App() {
   const [todo, setTodo] = useState([]);
@@ -21,21 +21,12 @@ function App() {
     });
   };
 
-  // const updateTodo = (id) => {
-  //   updateTask(todo, id).then((res) => {
-  //     const allTasks = res.data;
-  //     setTodo(allTasks);
-  //   });
-  // };
-
-  const onCompletedChange = (id) => {
-    if (window.confirm("Mark this task complete?")) {
-      setTodo(completedDone(todo, id));
-    }
+  const onUpdate = (id) => {
+    setTodo(updateTask(todo, id));
   };
 
-  const onDeleteTodo = (id) => {
-    setTodo(deleteTodo(todo, id));
+  const onDelete = (id) => {
+    deleleteTask(todo, id);
   };
 
   return (
@@ -43,11 +34,19 @@ function App() {
       <Header />
       <AddTaskForm handleAdd={addTodo} />
       <VarietyTask />
-      <TodoList
+      {/* <TodoList
         todo={todo}
-        handleDelete={onDeleteTodo}
-        completedChange={onCompletedChange}
-      />
+             /> */}
+      <div className="todo-list">
+        {todo.map((item) => (
+          <TodoItem
+            key={item._id}
+            item={item}
+            handleDelete={(id) => onDelete(id)}
+            completedDone={(id) => onUpdate(id)}
+          />
+        ))}
+      </div>
     </>
   );
 }
