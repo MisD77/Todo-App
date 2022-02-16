@@ -7,9 +7,9 @@ function Header({text, bgColor, textColor}) {
     }
 
   return(
-      <header style={headerStyles}>
+      <header  data-test="headerComponent" style={headerStyles}>
           <div className="container">
-              <h2>{text}</h2>
+              <h2 data-test = "textHeader">{text}</h2>
           </div>
       </header>
   );

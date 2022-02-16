@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Header from "./components/Header";
 import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
 import TodoList from "./components/TodoList";
-import Card from "./components/shared/Card";
 import "./index.css";
-import { apiUrl, getAllTasks, addTask } from "./apiServices";
+import { getAllTasks, addTask, completedChange } from "./apiServices";
 
 function App() {
   const [todo, setTodo] = useState([]);
-
   useEffect(() => {
     getAllTasks().then((response) => {
       const allTasks = response.data;
@@ -19,23 +16,31 @@ function App() {
   }, []);
 
   const addTodo = async (newTodo) => {
-    addTask.then((res) => {
+    addTask(newTodo).then((res) => {
       setTodo([newTodo, ...todo]);
     });
   };
 
-  const updateTodo = (newTodo) => {
-    axios
-      .put(apiUrl + "/" + newTodo._id, { completed: !newTodo.completed })
-      .then((res) => {
-        const allTasks = res.data;
-        setTodo(allTasks);
-      });
+  // const updateTodo = (id) => {
+  //   updateTask(todo, id).then((res) => {
+  //     const allTasks = res.data;
+  //     setTodo(allTasks);
+  //   });
+  // };
+
+  const onCompletedChange = (todo, id) => {
+    if (window.confirm("Mark this task complete?")) {
+      //const newTodo = completedChange(todo, id);
+      //console.log("toggle", newTodo);
+      const item = this.item;
+      console.log(todo);
+      setTodo((item.completed = !item.completed));
+    }
   };
 
-  const deleteTodo = async (id) => {
+  const deleteTodo = (id) => {
     if (window.confirm("Are you sure you want to delete")) {
-      await axios.delete(apiUrl + "/" + id);
+      console.log("ok");
       setTodo(todo.filter((item) => item._id !== id));
     }
   };
@@ -45,7 +50,11 @@ function App() {
       <Header />
       <AddTaskForm handleAdd={addTodo} />
       <VarietyTask />
-      <TodoList todo={todo} handleDelete={deleteTodo} />
+      <TodoList
+        todo={todo}
+        handleDelete={deleteTodo}
+        completedChange={onCompletedChange}
+      />
     </>
   );
 }

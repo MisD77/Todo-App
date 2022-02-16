@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
-import TodoItem from "./TodoItem";
-import { act } from "react-dom/test-utils";
+import TodoItem from "../components/TodoItem";
 
 describe("TodoItem Component", () => {
   test("rendered checkbox", () => {

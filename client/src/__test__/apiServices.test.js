@@ -4,8 +4,8 @@ jest.mock("axios", () => ({
 }));
 
 import axios from "axios";
-import App from "./App";
-import { apiUrl, getAllTasks, addTask } from "./apiServices";
+import App from "../App";
+import { apiUrl, getAllTasks, addTask } from "../apiServices";
 
 describe("When getAllTasks api call is passed", () => {
   test("should return all todo list on success", async () => {

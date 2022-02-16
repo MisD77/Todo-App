@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import TodoItem from "./TodoItem";
 
 
-function TodoList({ todo, handleDelete}) {
+function TodoList({ todo, handleDelete, completedChange}) {
   if (!todo || todo.length === 0)
   {
     return <p>No Todo Item</p>
@@ -11,8 +11,9 @@ function TodoList({ todo, handleDelete}) {
   return (
   <div className="todo-list">
     {todo.map((item) => (
-      <TodoItem key={item._id} item={item} 
-      handleDelete={handleDelete}
+      <TodoItem key={item._id} item={item}
+      handleDelete={(id) => handleDelete(id)}
+      completedChange={(id) => completedChange(id)}
       />
     )
   )}

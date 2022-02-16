@@ -20,3 +20,12 @@ export function updateTask(id, task) {
 export function deleteTask(id) {
   return axios.delete(apiUrl + "/" + id);
 }
+
+export function completedChange(task, id) {
+  const filterTask = task.map((item) => {
+    if (item.id === id) {
+      item.completed = !item.completed;
+    }
+  });
+  return filterTask;
+}
