@@ -4,7 +4,7 @@ import AddTaskForm from "./components/AddTaskForm";
 import VarietyTask from "./components/VarietyTask";
 import TodoList from "./components/TodoList";
 import "./index.css";
-import { getAllTasks, addTask, completedChange } from "./apiServices";
+import { getAllTasks, addTask, completedDone, deleteTodo } from "./apiServices";
 
 function App() {
   const [todo, setTodo] = useState([]);
@@ -28,21 +28,14 @@ function App() {
   //   });
   // };
 
-  const onCompletedChange = (todo, id) => {
+  const onCompletedChange = (id) => {
     if (window.confirm("Mark this task complete?")) {
-      //const newTodo = completedChange(todo, id);
-      //console.log("toggle", newTodo);
-      const item = this.item;
-      console.log(todo);
-      setTodo((item.completed = !item.completed));
+      setTodo(completedDone(todo, id));
     }
   };
 
-  const deleteTodo = (id) => {
-    if (window.confirm("Are you sure you want to delete")) {
-      console.log("ok");
-      setTodo(todo.filter((item) => item._id !== id));
-    }
+  const onDeleteTodo = (id) => {
+    setTodo(deleteTodo(todo, id));
   };
 
   return (
@@ -52,7 +45,7 @@ function App() {
       <VarietyTask />
       <TodoList
         todo={todo}
-        handleDelete={deleteTodo}
+        handleDelete={onDeleteTodo}
         completedChange={onCompletedChange}
       />
     </>

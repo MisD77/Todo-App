@@ -21,11 +21,19 @@ export function deleteTask(id) {
   return axios.delete(apiUrl + "/" + id);
 }
 
-export function completedChange(task, id) {
+export function completedDone(task, id) {
   const filterTask = task.map((item) => {
-    if (item.id === id) {
+    if (item._id === id) {
       item.completed = !item.completed;
     }
+    axios.put(apiUrl + "/" + id, item);
+    return item;
   });
   return filterTask;
+}
+
+export function deleteTodo(task, id) {
+  if (window.confirm("Are you sure you want to delete")) {
+    return task.filter((task) => task._id !== id);
+  }
 }

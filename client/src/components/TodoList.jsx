@@ -12,8 +12,8 @@ function TodoList({ todo, handleDelete, completedChange}) {
   <div className="todo-list">
     {todo.map((item) => (
       <TodoItem key={item._id} item={item}
-      handleDelete={(id) => handleDelete(id)}
-      completedChange={(id) => completedChange(id)}
+      handleDelete={handleDelete}
+      completedChange={completedChange}
       />
     )
   )}
