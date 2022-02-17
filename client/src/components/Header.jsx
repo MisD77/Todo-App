@@ -17,14 +17,11 @@ function Header({text, bgColor, textColor}) {
 
   Header.defaultProps = {
       text: 'MY TODO APP',
-      bgColor: 'rgba(0,0,0,0.4)',
-      textColor: '#9d2727',
   }
 
   Header.propTypes = {
-        text: PropTypes.string,
-        bgColor: PropTypes.string,
-        textColor: PropTypes.string,
+        text: PropTypes.string
+     
   }
 
 export default Header;

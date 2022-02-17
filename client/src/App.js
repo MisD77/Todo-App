@@ -21,7 +21,7 @@ function App() {
     });
   };
 
-  const onUpdate = (id) => {
+  const onUpdate = async (id) => {
     setTodo(updateTask(todo, id));
   };
 
@@ -40,7 +40,7 @@ function App() {
       <div className="todo-list">
         {todo.map((item) => (
           <TodoItem
-            key={item._id}
+            key={item.id}
             item={item}
             handleDelete={(id) => onDelete(id)}
             completedDone={(id) => onUpdate(id)}

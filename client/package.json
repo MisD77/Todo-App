@@ -1,5 +1,10 @@
 {
   "name": "client",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -8,7 +13,6 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
-    "enzyme-adapter-react-15": "^1.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -19,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -59,13 +63,5 @@
     "jest": "^27.5.1",
     "jest-watch-typeahead": "^0.6.5",
     "react-test-renderer": "^17.0.2"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "setupFiles": [
-      "./src/setupTests.js"
-    ]
   }
 }

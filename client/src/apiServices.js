@@ -19,15 +19,15 @@ export function addTask(task) {
 
 export function updateTask(task, id) {
   const filterTask = task.map((item) => {
-    if (item.id === id) {
+    if (item._id === id) {
       item.completed = !item.completed;
     }
-    //axios.put(apiUrl + "/" + id, item);
+    axios.put(apiUrl + "/" + id, item);
     return item;
   });
   return filterTask;
 }
 
 export function deleleteTask(task, id) {
-  return task.filter((task) => task.id !== id);
+  return task.filter((task) => task._id !== id);
 }

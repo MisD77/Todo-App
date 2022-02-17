@@ -27,7 +27,7 @@ function AddTaskForm({ handleAdd }) {
     placeholder=' New task' 
     value={text}
     />
-    <button onClick={(e) => handleSubmit(e)} className = "btn" type="submit" disabled={ btnDisabled }>Add </button>
+    <button id='button' onClick={(e) => handleSubmit(e)} className = "btn" type="submit" disabled={ btnDisabled }>Add </button>
   </div>
   );
 }
