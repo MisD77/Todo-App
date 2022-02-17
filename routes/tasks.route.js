@@ -10,6 +10,7 @@ router.get("/todoapi", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
+    //use service instead like task = await Task.service();
     const tasks = await Task.find();
     res.send(tasks);
   } catch (error) {
@@ -45,21 +46,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-/*  
-app.get("/api/add-task", (req, res) => {
-    const task = new Task({
-      name: "Renew License",
-      completed: "false",
-      date: Date.now(),
-    });
-    task
-      .save()
-      .then((result) => {
-        res.send(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
-  */
