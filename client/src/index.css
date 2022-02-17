@@ -54,8 +54,8 @@ header {
   background: none;
 }
 
-.todo-checkbox-text {
-  margin: -10px;
+.done-todo {
+  text-decoration: line-through;
 }
 
 .add-to-list,

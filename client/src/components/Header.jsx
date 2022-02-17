@@ -7,9 +7,9 @@ function Header({text, bgColor, textColor}) {
     }
 
   return(
-      <header style={headerStyles}>
+      <header  data-test="headerComponent" style={headerStyles}>
           <div className="container">
-              <h2>{text}</h2>
+              <h2 data-test = "textHeader">{text}</h2>
           </div>
       </header>
   );
@@ -17,14 +17,11 @@ function Header({text, bgColor, textColor}) {
 
   Header.defaultProps = {
       text: 'MY TODO APP',
-      bgColor: 'rgba(0,0,0,0.4)',
-      textColor: '#9d2727',
   }
 
   Header.propTypes = {
-        text: PropTypes.string,
-        bgColor: PropTypes.string,
-        textColor: PropTypes.string,
+        text: PropTypes.string
+     
   }
 
 export default Header;

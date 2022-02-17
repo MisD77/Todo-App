@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios'
 function AddTaskForm({ handleAdd }) {
-
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
 
@@ -22,18 +20,15 @@ function AddTaskForm({ handleAdd }) {
   }
 
   return (
-    <div className="add-to-list">
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <input onChange={handleTextChange} 
-            type="text" 
-            placeholder=' New task' 
-            value={text}
-            />
-            <button className = "btn" type="submit" disabled={ btnDisabled }>Add </button>
-          </div>
-        </form>
-    </div>
+  <div className="input-group">
+    <input 
+    onChange={(e) => handleTextChange(e)}
+    type="text" 
+    placeholder=' New task' 
+    value={text}
+    />
+    <button id='button' onClick={(e) => handleSubmit(e)} className = "btn" type="submit" disabled={ btnDisabled }>Add </button>
+  </div>
   );
 }
 

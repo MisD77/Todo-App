@@ -1,5 +1,10 @@
 {
   "name": "client",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",
@@ -8,11 +13,11 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-15": "^1.4.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-scripts": "5.0.0",
+    "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -25,6 +30,12 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "tsconfig.json": {
+    "types": [
+      "jest",
+      "node"
     ]
   },
   "browserslist": {
@@ -40,6 +51,16 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.17.4",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@testing-library/dom": "^8.11.3",
+    "@types/jest": "^27.4.0",
+    "babel-jest": "^27.5.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "jest": "^27.5.1",
     "jest-watch-typeahead": "^0.6.5",
     "react-test-renderer": "^17.0.2"
   }

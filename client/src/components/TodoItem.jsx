@@ -1,20 +1,26 @@
 import { FaTrashAlt } from 'react-icons/fa';
-import Card from './shared/Card';
+function TodoItem({ item, completedDone, handleDelete }) {
 
+  // const completedDone = () => {
+  //   item.completedDone(item._id);
+  // }
 
-function TodoItem({ item, handleDelete }) {
+  // const handleDelete = (e) => {
+  //   //e.preventDefault();
+  //   item.handleDelete(item._id);
+  // }
+
+  const className = item.completed ? "done-todo" : "";
+
   return (
-    <Card>
-      <div className="todo-check">
-        <input type="checkbox" checked={item.completed} id="to-do-item" name="to-do-item"/>
-        <label htmlFor="to-do-item">{item.name}</label>
-      </div>
-      <button onClick={() => handleDelete(item._id)} className="delete"> 
+    <div className={`card item ${className} todo-${item._id}`}> 
+      <p className="toggle-todo" onClick={() => completedDone(item._id)}>
+        {item.name}
+      </p>
+      <button data-testid="" onClick={(e) => handleDelete(item._id)} className="delete"> 
        <FaTrashAlt color="#9d2727" />
-      </button>
-    </Card>
+      </button>      
+    </div>
   )}
-
-
 
 export default TodoItem;
