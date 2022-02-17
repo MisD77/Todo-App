@@ -10,6 +10,8 @@ const tasks = require("../routes/tasks.route");
 app.use("/api/tasks", tasks);
 
 app.get("/api", (req, res) => {
-  res.json({ message: "Welcome to the to-do app!" });
+  res.json({ message: "Welcome to the to-do ap!" });
 });
+
+module.exports = app;
 
