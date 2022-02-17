@@ -29,7 +29,5 @@ export function updateTask(task, id) {
 }
 
 export function deleleteTask(task, id) {
-  if (window.confirm("Are you sure you want to delete")) {
-    return task.filter((task) => task.id !== id);
-  }
+  return task.filter((task) => task.id !== id);
 }

@@ -85,7 +85,6 @@ it("marks the todo as completed", () => {
 test("deleteTodo deletes the todo it is given", () => {
   const startState = [{ id: 1, completed: false, name: "Buy Milk" }];
   const finState = deleleteTask(startState, 1);
-  window.confirm = jest.fn().mockImplementation(() => true)
   expect(finState).toEqual([]);
 });
 
