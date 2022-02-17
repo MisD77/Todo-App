@@ -26,7 +26,7 @@ function App() {
   };
 
   const onDelete = (id) => {
-    deleleteTask(todo, id);
+    setTodo(deleleteTask(todo, id));
   };
 
   return (

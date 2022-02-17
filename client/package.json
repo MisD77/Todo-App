@@ -47,17 +47,25 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.17.4",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@testing-library/dom": "^8.11.3",
     "@types/jest": "^27.4.0",
+    "babel-jest": "^27.5.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.2",
     "jest": "^27.5.1",
     "jest-watch-typeahead": "^0.6.5",
     "react-test-renderer": "^17.0.2"
-  }, 
+  },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./src/setupTests.js"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
+    ]
   }
 }

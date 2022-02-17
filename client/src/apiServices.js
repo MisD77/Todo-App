@@ -19,19 +19,17 @@ export function addTask(task) {
 
 export function updateTask(task, id) {
   const filterTask = task.map((item) => {
-    if (item._id === id) {
-        item.completed = !item.completed;
+    if (item.id === id) {
+      item.completed = !item.completed;
     }
-    axios.put(apiUrl + "/" + id, item);
+    //axios.put(apiUrl + "/" + id, item);
     return item;
   });
   return filterTask;
 }
 
-
 export function deleleteTask(task, id) {
   if (window.confirm("Are you sure you want to delete")) {
-    return task.filter((task) => task._id !== id);
+    return task.filter((task) => task.id !== id);
   }
 }
-
