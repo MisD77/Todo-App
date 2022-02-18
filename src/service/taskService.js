@@ -1,19 +1,45 @@
-import axios from "axios";
+const Task = require("../models/task.model");
 
-const apiUrl = "https://localhost:8080/api/tasks";
-
-export function getTasks() {
-  return axios.get(apiUrl);
+async function getAllTasks() {
+  try {
+    const result = await Task.find();
+    return result;
+  } catch (error) {
+    return error;
+  }
 }
 
-export function addTask(task) {
-  return axios.post(apiUrl, task);
+async function addTask(task) {
+  try {
+    const result = await new Task(task).save();
+    return result;
+  } catch (error) {
+    return error;
+  }
 }
 
-export function updateTask(id, task) {
-  return axios.put(apiUrl + "/" + id, task);
+async function updateTask(id, task) {
+  try {
+    const newTask = new Task(task);
+    const result = await Task.findOneAndUpdate(id, newTask);
+    return { success: true, body: result };
+  } catch (error) {
+    return { success: false, body: error };
+  }
 }
 
-export function deleteTask(id) {
-    return axios.deleteTask(apiUrl+'/'+id);
+async function deleteTask(id) {
+  try {
+    return await Task.findByIdAndDelete(id);
+    return { success: true };
+  } catch (error) {
+    return { success: false, body: error };
+  }
 }
+
+module.exports = {
+  getAllTasks,
+  addTask,
+  updateTask,
+  deleteTask,
+};

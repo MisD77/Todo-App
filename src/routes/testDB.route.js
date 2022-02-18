@@ -1,7 +1,12 @@
+const express = require("express");
 const mongoose = require("mongoose");
+const router = express.Router();
 
 // Variable to be sent to Frontend with Database status
 let databaseConnection = "Waiting for Database response...";
+router.get("/", function (req, res, next) {
+  res.send(databaseConnection);
+});
 
 // Connecting to MongoDB
 const dbURI =
@@ -21,6 +26,8 @@ mongoose.connection.once("open", () => {
   console.log("Connected to Database!");
   databaseConnection = "Connected to Database";
 });
+
+module.exports = router;
 
 //use this with docker container
 //const dbURI = "mongodb://localhost:27017/todo";

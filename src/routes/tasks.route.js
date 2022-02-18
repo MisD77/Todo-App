@@ -1,47 +1,42 @@
 const Task = require("../models/task.model");
+const service = require("../service/taskService.js");
+
 const express = require("express");
 const router = express.Router();
 
-/*
-router.get("/todoapi", async (req, res) => {
-  res.json({ message: "Welcome to the to-do app!" });
-});
-*/
-
 router.get("/", async (req, res) => {
   try {
-    //use service instead like task = await Task.service();
-    const tasks = await Task.find();
+    const tasks = await service.getAllTasks();
     res.send(tasks);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
 router.post("/", async (req, res) => {
   try {
-    const task = await new Task(req.body).save();
+    const task = service.addTask(req.body);
     res.send(task);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
 router.put("/:id", async (req, res) => {
   try {
-    const task = await Task.findOneAndUpdate({ _id: req.params.id }, req.body);
+    const task = service.updateTask({ _id: req.params.id }, req.body);
     res.send(task);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
 router.delete("/:id", async (req, res) => {
   try {
-    const task = Task.findByIdAndDelete(req.params.id);
+    const task = service.findByIdAndDelete(req.params.id);
     res.send(task);
   } catch (error) {
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
