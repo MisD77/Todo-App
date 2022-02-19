@@ -21,6 +21,7 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "superagent": "^7.1.1",
